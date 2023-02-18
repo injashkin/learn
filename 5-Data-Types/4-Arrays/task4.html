@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      function sumInput() {
+        const numbers = [];
+        while (true) {
+          let num = prompt("Введите число", 0);
+          if (!isFinite(num) || num === "" || num === null) break;
+          numbers.push(+num);
+        }
+
+        let sum = 0;
+        for (let number of numbers) {
+          sum += number;
+        }
+        return sum;
+      }
+      alert(sumInput());
+    </script>
+  </body>
+</html>
