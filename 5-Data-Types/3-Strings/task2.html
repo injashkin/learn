@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function checkSpam(str) {
+        return (
+          str.toLowerCase().includes("viagra") ||
+          str.toUpperCase().includes("XXX")
+        );
+      }
+
+      alert(checkSpam("buy ViAgRA now"));
+      alert(checkSpam("free xxxxx"));
+      alert(checkSpam("innocent rabbit"));
+    </script>
+  </body>
+</html>
