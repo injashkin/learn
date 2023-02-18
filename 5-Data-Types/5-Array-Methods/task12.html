@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      function unique(arr) {
+        // 1
+        return [...new Set(arr)];
+        // 2
+        //return Array.from(new Set(arr));
+      }
+
+      let strings = [
+        "кришна",
+        "кришна",
+        "харе",
+        "харе",
+        "харе",
+        "харе",
+        "кришна",
+        "кришна",
+        ":-O",
+      ];
+
+      alert(unique(strings)); // кришна, харе, :-O
+    </script>
+  </body>
+</html>

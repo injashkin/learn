@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      let vasya = { name: "Вася", age: 25 };
+      let petya = { name: "Петя", age: 30 };
+      let masha = { name: "Маша", age: 28 };
+
+      let users = [vasya, petya, masha];
+
+      // 1-ый способ
+      let names = users.map((item) => item.name);
+
+      // 2-ой способ
+      // let names = [];
+      // users.forEach((item, index) => {
+      //   names.push(item.name);
+      // });
+
+      alert(names); // Вася, Петя, Маша
+    </script>
+  </body>
+</html>

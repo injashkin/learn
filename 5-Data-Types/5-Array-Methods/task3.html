@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      function filterRangeInPlace(arr, a, b) {
+        for (let i = 0; i < arr.length; i++) {
+          if (!(arr[i] >= a && arr[i] <= b)) {
+            arr.splice(i, 1);
+          }
+        }
+      }
+
+      let arr = [5, 3, 8, 1];
+      filterRangeInPlace(arr, 1, 4);
+      alert(arr); // [3, 1]
+
+      let arr2 = [0, 5, 7, 12, 3, 8, 1];
+      filterRangeInPlace(arr2, 3, 7);
+      alert(arr2); // 5, 7, 3, 1
+    </script>
+  </body>
+</html>
