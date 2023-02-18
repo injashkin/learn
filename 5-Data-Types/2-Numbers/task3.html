@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <script>
+      "use strict";
+      function readNumber() {
+        while (true) {
+          let num = prompt("Введите число", 0);
+          if (num === null || num === "") return null;
+          if (isFinite(num)) return num;
+        }
+      }
+
+      alert(`Число: ${readNumber()}`);
+    </script>
+  </body>
+</html>
