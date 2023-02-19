@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function getSecondsToTomorrow() {
+        const now = new Date();
+        const midnightNext = new Date(
+          now.getFullYear(),
+          now.getMonth(),
+          now.getDate() + 1
+        );
+        return Math.round((midnightNext - now) / 1000);
+      }
+
+      alert(getSecondsToTomorrow()); // от 0 до 86400
+    </script>
+  </body>
+</html>

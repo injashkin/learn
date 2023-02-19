@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function getLastDayOfMonth(year, month) {
+        return (new Date(year, month + 1) - new Date(year, month)) / 86400000;
+      }
+
+      alert(getLastDayOfMonth(2012, 1)); // 29
+      alert(getLastDayOfMonth(2023, 1)); // 28
+      alert(getLastDayOfMonth(2024, 10)); // 30
+      alert(getLastDayOfMonth(2024, 11)); // 31
+      alert(getLastDayOfMonth(2025, 0)); // 31
+      alert(getLastDayOfMonth(2024, 3)); // 30
+    </script>
+  </body>
+</html>

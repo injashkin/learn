@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function formatDate(date) {
+        const now = new Date();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+
+        day = day < 10 ? `0${day}` : day;
+        month = month < 10 ? `0${month}` : month;
+        year = year.toString().slice(2);
+        hours = hours < 10 ? `0${hours}` : hours;
+        minutes = minutes < 10 ? `0${minutes}` : minutes;
+
+        const diff = (now - date) / 1000;
+
+        if (diff < 1) {
+          return "прямо сейчас";
+        } else if (diff >= 1 && diff < 60) {
+          return `${diff} сек. назад`;
+        } else if (diff >= 60 && diff < 3600) {
+          return `${diff / 60} мин. назад`;
+        } else {
+          return `${day}.${month}.${year} ${hours}:${minutes}`;
+        }
+      }
+
+      alert(formatDate(new Date(new Date() - 1))); // "прямо сейчас"
+
+      alert(formatDate(new Date(new Date() - 30 * 1000))); // "30 сек. назад"
+
+      alert(formatDate(new Date(new Date() - 5 * 60 * 1000))); // "5 мин. назад"
+      // вчерашняя дата
+      alert(formatDate(new Date(new Date() - 86400 * 1000)));
+      alert(formatDate(new Date(new Date() - 10 * 86400 * 1000)));
+
+    </script>
+  </body>
+</html>

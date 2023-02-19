@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // 1
+      const str = "2012-02-20T03:12";
+      let date1 = new Date(Date.parse(str));
+      alert(date1); // Mon Feb 20 2012 03:12:00 GMT+0400 (Москва, стандартное время)
+
+      // 2
+      let date2 = new Date(2012, 1, 20, 3, 12);
+      alert(date2); // Mon Feb 20 2012 03:12:00 GMT+0400 (Москва, стандартное время)
+    </script>
+  </body>
+</html>
