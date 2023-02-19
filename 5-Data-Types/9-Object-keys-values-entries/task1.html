@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function sumSalaries(salaries) {
+        let sum = 0;
+        const arr = Object.values(salaries);
+        for(let salary of arr) {
+          sum += salary;
+        }
+        return sum;
+      }
+
+      let salaries = {
+        John: 100,
+        Pete: 300,
+        Mary: 250,
+      };
+
+      alert(sumSalaries(salaries)); // 650
+    </script>
+  </body>
+</html>
