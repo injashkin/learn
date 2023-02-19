@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      function topSalary(salaries) {
+        let maxSalaries = 0;
+        let maxName = null;
+        const [...names] = Object.entries(salaries);
+        for(let name of names) {
+          if (maxSalaries < name[1]) {
+            maxSalaries = name[1];
+            maxName = name[0];
+          }
+          maxSalaries = Math.max(maxSalaries, name[1])
+        }
+        return maxName;
+      }
+
+      let salaries = {
+        John: 100,
+        Pete: 300,
+        Mary: 250,
+      };
+
+      alert(topSalary(salaries));
+    </script>
+  </body>
+</html>
