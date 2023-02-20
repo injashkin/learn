@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      let user = {
+        name: "Василий Иванович",
+        age: 35,
+      };
+
+      const userStr = JSON.stringify(user);
+      const userObj = JSON.parse(userStr);
+
+      alert(userStr);
+      alert(userObj);
+    </script>
+  </body>
+</html>
