@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      let messages = [
+        { text: "Hello", from: "John" },
+        { text: "How goes?", from: "John" },
+        { text: "See you soon", from: "Alice" },
+      ];
+
+      const timeReadMessages = new WeakMap();
+      alert(
+        `Это сообщение от ${messages[1].from}, в котором содержится следующее: \n${messages[1].text}`
+      );
+      timeReadMessages.set(messages[1], new Date());
+
+      alert(
+        `Это сообщение вами было прочитано \n ${timeReadMessages.get(
+          messages[1]
+        )}`
+      );
+    </script>
+  </body>
+</html>
