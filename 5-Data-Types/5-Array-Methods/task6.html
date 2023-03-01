@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      /*
+      Первая часть задачи мною была решена так:
+
+      function Calculator() {
+        this.calculate = function (str) {
+          let arr = str.split(" ");
+          if (arr[1] === "+") return +arr[0] + +arr[2];
+          if (arr[1] === "-") return +arr[0] - +arr[2];
+          return "ОШИБКА: \nМетод calculate принимает только операторы + или -";
+        };
+      }
+
+      Но при решении второй части я понял, что данный способ не расширяемый.
+      */
+
+      function Calculator() {
+        this.operations = {
+          "-": (a, b) => a - b,
+          "+": (a, b) => a + b,
+        };
+
+        this.calculate = function (str) {
+          let arr = str.split(" ");
+          if (!this.operations[arr[1]]) {
+            return "ОШИБКА: Эта операция не поддерживается, но вы можете ее добавить с помощью метода \naddMethod(name, func)";
+          }
+
+          return this.operations[arr[1]](+arr[0], +arr[2]);
+        };
+
+        this.addMethod = function (name, func) {
+          this.operations[name] = func;
+          return `Ваш калькулятор теперь поддерживает операцию "${name}"`
+        };
+      }
+
+      let calc = new Calculator();
+      alert(`3 + 7 = ${calc.calculate("3 + 7")}`); // 3 + 7 = 10
+      alert(`3 - 7 = ${calc.calculate("3 - 7")}`); // 3 - 7 = -4
+      alert(`g + 7 = ${calc.calculate("g + 7")}`); // g + 7 = NaN
+      alert(`3 * 7 = ${calc.calculate("3 * 7")}`); // 3 * 7 = "ОШИБКА: ...
+      alert(calc.addMethod("*", (a, b) => a * b)); // Ваш калькулятор теперь поддерживает операцию "*"
+      alert(`3 * 7 = ${calc.calculate("3 * 7")}`); // 3 * 7 = 21
+      alert(calc.addMethod("/", (a, b) => a / b)); // Ваш калькулятор теперь поддерживает операцию "/"
+      alert(`15 / 5 = ${calc.calculate("15 / 5")}`); // 15 / 5 = 3
+      alert(calc.addMethod("**", (a, b) => a ** b)); // Ваш калькулятор теперь поддерживает операцию "**"
+      alert(`2 ** 3 = ${calc.calculate("2 ** 3")}`); // 2 ** 3 = 8
+
+    </script>
+  </body>
+</html>
