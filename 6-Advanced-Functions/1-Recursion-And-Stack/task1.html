@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+
+      // ---------- ЦИКЛ ----------
+      /* 
+      Вычисляет сумму чисел от 1 до n
+      с помощью цикла 
+      */
+      function sumToWithLoop(n) {
+        let i = 1;
+        let sum = 0;
+        while (i <= n) {
+          sum += i;
+          i++;
+        }
+        return sum;
+      }
+
+      // ---------- РЕКУРСИЯ ----------
+      /* 
+      Вычисляет сумму чисел от 1 до n с помощью рекурсии 
+
+      Следует учесть, что максимальная глубина рекурсии 
+      браузера Яндекс (на моем компе) равна 10473, 
+      а браузера Firefox ~12750.
+      Следовательно, при вычислении методом рекурсии число n 
+      не должно превышать этих значений максимальной глубины 
+      рекурсии движка браузера
+      */
+      function sumToWithRecursion(n) {
+        return n === 1 ? 1 : n + sumToWithRecursion(n - 1);
+      }
+
+      // ---------- АРИФМЕТИЧЕСКАЯ ПРОГРЕССИЯ ----------
+
+      /* 
+      Вычисляет сумму чисел от 1 до n 
+      с помощью арифметической прогрессии 
+      */
+      function sumToWithProgression(n) {
+        return (n * (n + 1)) / 2;
+      }
+
+      //=================================
+      // Функция-бенчмарк
+      //=================================
+
+      function benchmark() {
+        let s1 = 10000;
+        let s2 = 10001;
+        let s3;
+        let n = 10000;
+        let t0 = performance.now();
+        for (var i = 0; i < n; i++) {
+          s3 = s1;
+          s1 = s2;
+          s2 = s3;
+          sumToWithLoop(s1);
+        }
+        let t1 = performance.now();
+        let t2 = performance.now();
+        for (var i = 0; i < n; i++) {
+          s3 = s1;
+          s1 = s2;
+          s2 = s3;
+          sumToWithRecursion(s1);
+        }
+        let t3 = performance.now();
+        let t4 = performance.now();
+        for (var i = 0; i < n; i++) {
+          s3 = s1;
+          s1 = s2;
+          s2 = s3;
+          sumToWithProgression(s1);
+        }
+        let t5 = performance.now();
+        let bench = [];
+        bench.push((t1 - t0) / n) * 1000;
+        bench.push((t3 - t2) / n) * 1000;
+        bench.push((t5 - t4) / n) * 1000;
+        return bench;
+      }
+      //=================================
+
+      alert(
+        `Сумма от 1 до 10000 равна ${sumToWithRecursion(100)}\n
+        Время вычисления суммы от 1 до 10000 составляет:\n
+        с помощью цикла ${benchmark()[0]} мкс \n
+        с помощью рекурсии ${benchmark()[1]} мкс \n
+        с помощью арифметической прогрессии ${benchmark()[2]} мкс \n`
+      );
+    </script>
+  </body>
+</html>
